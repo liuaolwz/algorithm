@@ -1,5 +1,10 @@
 package com.owl.algorithm.sort;
 
+/**
+ * 各种排序
+ * @author liuao
+ * @date 2018/5/16 17:19
+ */
 public enum Sort {
   /**
    * 选择排序
@@ -71,16 +76,25 @@ public enum Sort {
     }
   };
 
+  /**
+   * 比较
+   */
   public static boolean less(Comparable v, Comparable w) {
     return v.compareTo(w) < 0;
   }
 
+  /**
+   * 交换数组中两个元素
+   */
   public static void exch(Comparable[] a, int i, int j) {
     final Comparable tmp = a[i];
     a[i] = a[j];
     a[j] = tmp;
   }
 
+  /**
+   * 打印数组
+   */
   public static void show(Comparable[] a) {
     for (Comparable anA : a) {
       System.out.print(anA + " ");
@@ -88,6 +102,9 @@ public enum Sort {
     System.out.println();
   }
 
+  /**
+   * 校验数组是否成功排序
+   */
   public static boolean isSorted(Comparable[] a) {
     for (int i = 1; i < a.length; i++) {
       if (less(a[i], a[i - 1])) {
@@ -97,5 +114,8 @@ public enum Sort {
     return true;
   }
 
+  /**
+   * 抽象排序方法，枚举中实现
+   */
   public abstract void sort(Comparable[] a);
 }
