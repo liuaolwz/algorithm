@@ -45,11 +45,11 @@ public class Vector<T> {
     }
   }
 
-  public int size() {
+  protected int size() {
     return _size;
   }
 
-  public boolean empty() {
+  protected boolean empty() {
     return _size <= 0;
   }
 
@@ -60,36 +60,56 @@ public class Vector<T> {
   /**
    * 判断逆序对
    */
-  public int dissordered() {
+  protected int dissordered() {
     return 0;
+  }
+
+  @SuppressWarnings("unchecked")
+  protected T get(int rank) {
+    return (T) _elem[rank];
   }
 
   /**
    * 无序向量查找
    */
-  public int find(int lo, int hi) {
+  protected int find(int lo, int hi) {
     return 0;
   }
 
   /**
    * 有序向量查找
    */
-  public int search(int lo, int hi) {
+  protected int search(int lo, int hi) {
     return 0;
   }
 
   @SuppressWarnings("unchecked")
-  public T remove(int rank){
-    return (T) _elem[rank];
+  protected T remove(int rank) {
+    if (rank<0||rank>_size-1){
+      return null;
+    }
+    _size--;
+    T tmp = (T) _elem[rank];
+    _elem[rank] = null;
+    return tmp;
   }
 
-  public int remove(int lo,int hi){
-    return 0;
+  protected int insert(int index, T data) {
+    expand();
+    _size++;
+    _elem[index] = data;
+    return index;
   }
-  public int insert(int rank){
-    return 0;
-  }
-  public void sort(){
 
+  protected void sort() {
+
+  }
+  private void expand(){
+    if (_size<_capacity)return;
+    final Object[] oldElem = _elem;
+    _elem = new Object[_capacity<<=1];
+    for (int i = 0; i < _size; i++) {
+      _elem[i] = oldElem[i];
+    }
   }
 }
