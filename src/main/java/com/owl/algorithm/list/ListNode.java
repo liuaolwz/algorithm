@@ -1,7 +1,7 @@
 package com.owl.algorithm.list;
 
 /**
- * 链表节点
+ * 双向链表节点
  */
 public class ListNode<T> {
   private T data;
@@ -58,5 +58,14 @@ public class ListNode<T> {
 
   public ListNode<T> getSucc() {
     return succ;
+  }
+
+  @Override
+  public String toString() {
+    return "ListNode{" +
+        "data=" + data +
+        ", pred=" + pred.getData() +
+        ", succ=" + succ.getData() +
+        '}';
   }
 }
