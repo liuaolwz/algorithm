@@ -5,7 +5,7 @@
     * 队列queue
     * 栈stack
     * 树tree
-        * 搜索树searchTree
-        * 高级搜索树
+        * BST
+        * BBST
     * 图graph
 * 围绕着以上数据结构相关的算法实现及复杂度分析
